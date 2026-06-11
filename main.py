@@ -334,15 +334,6 @@ if __name__ == "__main__":
 	with app.app_context():
 		db.create_all()
 
-		if not User.query.filter_by(username="Andrew").first():
-			admin = User(
-	        	username="Andrew",
-	        	password_hash=generate_password_hash("andrewfirstwebsite")
-	        )
-		
-			db.session.add(admin)
-			db.session.commit()
-
 		if not Profile.query.first():
 			profile = Profile(
 				gpa="3.93",
