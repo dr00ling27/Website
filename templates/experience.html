@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+	Experience
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='experience.css')}}">
+<style>body { background-color: #B1C2D8; }</style>
+{% if current_user.is_authenticated %}
+	<a class="add-button"
+		href="{{ url_for('add_experience') }}">
+		+ Add Experience
+	</a>
+{% endif %}
+{% for experience in experiences %}
+	<div class="experience-card">
+		<div>
+			<h2>{{ experience.title }}</h2>
+			<p>{{ experience.time }}</p>
+		</div>
+		<ul>
+			<p class="description">{{ experience.description }}</p>
+		</ul>
+		{% if current_user.is_authenticated %}
+			<div>
+				<a class="experience-link" href="{{ url_for('edit_experience', experience_id=experience.id)}}">
+					✏️ Edit
+				</a>
+				<a class="experience-link" href ="{{ url_for('delete_experience', experience_id=experience.id)}}" onclick="return confirm('Delete this experience?)">
+					🗑 Delete
+				</a>
+			</div>
+		{% endif %}
+	</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}
+edit_experience
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='add_project.css')}}">
+<style>body { background-color: #B1C2D8; }</style>
+<div class="form-container">
+	<form method="POST">
+
+		<div class="form-group">
+			<label>GPA</label>
+		    <input type="text" name="gpa" value="{{ profile.gpa }}">
+		</div>
+
+		<div class="form-group">
+		    <label>Relevant Courses</label>
+		    <textarea name="courses">"{{ profile.courses }}"</textarea>
+		</div>
+
+		<div class = "form-group">
+		    <label>Technical Skills</label>
+		    <textarea name="tech_skills">{{ profile.tech_skills }}</textarea>
+		</div>
+
+		<div class = "form-group">
+		    <label>Programming Languages</label>
+		    <textarea name="programming_lang">{{ profile.programming_lang }}</textarea>
+		</div>
+
+		<div class = "form-group">
+		    <label>Development Tools</label>
+		    <textarea name="dev_tools">{{ profile.dev_tools }}</textarea>
+	    <div class = "form-group">
+
+	    <button type="submit">
+	        Save Changes
+	    </button>
+
+	</form>
+</div>
+{% endblock %}

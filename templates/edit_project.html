@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}
+edit_project
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='add_project.css')}}">
+<style>body { background-color: #B1C2D8; }</style>
+<div class="form-container">
+	<form method="POST">
+
+		<div class="form-group">
+			<label>Project Title</label>
+		    <input type="text" name="title" value="{{ project.title }}">
+		</div>
+
+		<div class="form-group">
+			<label>Description </label>
+		    <textarea name="description">{{ project.description }}</textarea>
+		</div>
+
+		<div class="form-group">
+			<label>Start-End</label>
+		    <input type="text" name="time" value="{{ project.time }}">
+	    </div>
+
+	    <div class="form-group">
+			<label>Skills</label>
+		    <input type="text" name="skills" value="{{ project.skills }}">
+		</div>
+
+		<div class="form-group">
+			<label>Project Link</label>
+		    <input type="text" name="link" value="{{ project.link }}">
+		</div>
+
+	    <button type="submit">
+	        Save Changes
+	    </button>
+
+	</form>
+</div>
+{% endblock %}

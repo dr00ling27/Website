@@ -1,0 +1,21 @@
+h1,h2,h3{
+  font-family: 'Poppins', sans-serif;
+}
+p,li,a{
+  font-family: 'Poppins', sans-serif;
+  font-size: 21px;
+}
+.custom-navbar {
+  background-color: #4F709C !important;
+    padding: 8px 30px;
+}
+
+.nav-link:hover {
+    color: #CC0C29 !important;
+}
+
+.nav-link {
+    color: white !important;
+    font-weight: 500;
+}
+

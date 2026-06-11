@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}
+	Education
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='experience.css')}}">
+<style>body { background-color: #B1C2D8; }</style>
+{% if current_user.is_authenticated %}
+    <a class="add-button" href="{{ url_for('edit_profile') }}">
+        ✏️ Edit Education Information
+    </a>
+{% endif %}
+	<div class="skills-card">
+		<h2>University of Connecticut</h2>
+		<p>Aug 2024 - May 2028</p>
+		<div style="display: flex;">
+			<p>Major: Electrical Engineering</p>
+		 	<p style="text-indent: 40px;">Minor: Mathematics and Software Design</p>
+		</div>
+		<p>GPA: {{ profile.gpa }}</p>
+		<p>Relevant Coursework: {{ profile.courses }}</p>
+	</div>
+
+	<div class="skills-card">
+		<h2 style="text-decoration: underline;">Skills</h2>
+		<div style="display: flex;">
+			<p>Technical Skills: </p>
+			<p style="text-indent: 10px;">{{ profile.tech_skills }}</p>
+		</div>
+		<div style="display: flex;">
+			<p>Programming Languages: </p>
+			<p style="text-indent: 10px;">{{ profile.programming_lang }}</p>
+		</div>
+		<div style="display: flex;">
+			<p>Development Tools: </p>
+			<p style="text-indent: 10px;">{{ profile.dev_tools }}</p>
+		</div>
+	</div>
+
+	<div class="skills-card">
+		<div class="section-header">
+			<h2 style="text-decoration: underline;">Certifications</h2>
+			{% if current_user.is_authenticated %}
+				<a class="add-button"
+					href="{{ url_for('add_certification') }}">
+					+ Add Certification
+				</a>
+			{% endif %}
+		</div>
+		{% for certification in certifications %}
+			<div class="section-row">
+				<p class="section-name">{{ certification.name }}</p>
+				<p class = "section-date">{{ certification.date }}</p>
+				{% if current_user.is_authenticated %}
+					<a class="experience-link" href="{{ url_for('edit_certification', certification_id=certification.id)}}">
+						✏️ Edit
+					</a>
+					<a class="experience-link" style="text-indent: 20px;" href ="{{ url_for('delete_certification', certification_id=certification.id)}}" onclick="return confirm('Delete this experience?)">
+						🗑 Delete
+					</a>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+
+	<div class="skills-card">
+		<div class="section-header">
+			<h2 style="text-decoration: underline;">Honors and Awards</h2>
+			{% if current_user.is_authenticated %}
+				<a class="add-button"
+					href="{{ url_for('add_award') }}">
+					+ Add Award
+				</a>
+			{% endif %}
+		</div>
+		{% for award in awards %}
+			<div class="section-row">
+				<p class="section-name">{{ award.name }}</p>
+				<p class="section-date">{{ award.date }}</p>
+				{% if current_user.is_authenticated %}
+					<a class="experience-link" href="{{ url_for('edit_award', award_id=award.id)}}">
+						✏️ Edit
+					</a>
+					<a class="experience-link" style="text-indent: 20px;" href ="{{ url_for('delete_award', award_id=award.id)}}" onclick="return confirm('Delete this experience?)">
+						🗑 Delete
+					</a>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}

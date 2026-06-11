@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+	About Me
+{% endblock %}
+
+{% block content%}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home.css')}}">
+	<style>body { background-color: #B1C2D8; }</style>
+	<div class="profile-card">
+		<h1>Andrew Ling</h1>
+		<image class="profile-image" src="{{url_for('static', filename='images/pfp.jpeg')}}", width=300>
+		<p>Location: Rego Park, NY, 11374</p>
+		<div class="contact-info">
+			<p>Email: andrewr0@icloud.com</p>
+			<p>Phone Number: (347)-502-0527</p>
+			<a href="https://www.linkedin.com/in/andrew-ling-9b0870218/"> LinkedIn</a>
+		</div>
+		<p>My name is Andrew, and I'm a sophomore at the University of Connecticut. I'm majoring in electrical engineering, with a minor in mathematics and software design. I'm a motivated Electrical Engineering student with a strong foundation in circuit design, analysis, and testing. Experienced in PCB design, soldering, and hands-on system assembly. Eager to apply analytical and problem-solving skills to real-world engineering challenges while continuing to learn and grow in the field.</p>
+	</div>
+
+{% endblock %}

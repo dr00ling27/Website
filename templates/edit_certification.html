@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+edit_certification
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='add_project.css')}}">
+<style>body { background-color: #B1C2D8; }</style>
+<div class="form-container">
+	<form method="POST">
+
+	    <input type="text" name="name" value="{{ certification.name }}">
+	    <br><br>
+
+	    <input type="text" name="date" value="{{ certification.date }}">
+	    <br><br>
+
+	    <button type="submit">
+	        Save Changes
+	    </button>
+
+	</form>
+</div>
+{% endblock %}

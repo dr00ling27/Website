@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}
+	Add Project
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='add_project.css')}}">
+<style>body { background-color: #B1C2D8; }</style>
+<div class="form-container">
+	<form method="POST" enctype="multipart/form-data">
+		<input type="text" name="title" placeholder="Job Title" required>
+	    <br><br>
+
+	    <input type="text" name="time" placeholder="Start - End">
+	    <br><br>
+
+	    <textarea name="description" placeholder="Description"></textarea>
+	    <br><br>
+
+	    <button type="submit">Add Experience</button>
+	</form>
+</div>
+{% endblock %}
